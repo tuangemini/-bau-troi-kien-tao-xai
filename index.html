@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-primary: #080d1a;
+            --bg-primary: #030712;
             --bg-card: rgba(15, 23, 42, 0.75);
-            --border-card: rgba(56, 189, 248, 0.2);
+            --border-card: rgba(56, 189, 248, 0.25);
             --accent-cyan: #00f2fe;
             --accent-blue: #38bdf8;
             --accent-gold: #fbbf24;
@@ -23,46 +23,91 @@
 
         body {
             background-color: var(--bg-primary);
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(192, 132, 252, 0.12) 0px, transparent 50%);
             color: var(--text-main);
             min-height: 100vh;
             padding-bottom: 60px;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+        /* NỀN BẦU TRỜI ĐẦY SAO LẤP LÁNH */
+        .stars-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #030712 100%);
+            overflow: hidden;
+        }
 
-        header { padding: 40px 0 20px; text-align: center; }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration, 3s) infinite ease-in-out;
+            opacity: var(--opacity, 0.8);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px #00f2fe; }
+        }
+
+        .shooting-star {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(255,255,255,1), transparent);
+            animation: shoot 5s infinite ease-in-out;
+            transform: rotate(-35deg);
+            opacity: 0;
+        }
+
+        @keyframes shoot {
+            0% { transform: translateX(0) translateY(0) rotate(-35deg); opacity: 1; }
+            30% { transform: translateX(-500px) translateY(350px) rotate(-35deg); opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+
+        header { padding: 45px 0 25px; text-align: center; }
 
         .badge-commander {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(251, 191, 36, 0.15);
-            border: 1px solid rgba(251, 191, 36, 0.3);
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.08));
+            border: 1px solid rgba(251, 191, 36, 0.4);
             color: var(--accent-gold);
-            padding: 6px 16px;
+            padding: 8px 20px;
             border-radius: 999px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 16px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            box-shadow: 0 0 25px rgba(251, 191, 36, 0.2);
         }
 
         h1.main-title {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 800;
             background: linear-gradient(135deg, #ffffff 0%, #38bdf8 50%, #00f2fe 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
         }
 
         .subtitle {
             color: var(--text-muted);
             font-size: 1.15rem;
-            max-width: 700px;
-            margin: 0 auto 24px;
+            max-width: 750px;
+            margin: 0 auto 28px;
             line-height: 1.6;
         }
 
@@ -70,60 +115,68 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 16px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .stat-card {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
-            backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 20px;
+            backdrop-filter: blur(16px);
+            border-radius: 18px;
+            padding: 22px;
             display: flex;
             align-items: center;
             gap: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 242, 254, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);
         }
 
         .stat-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: rgba(56, 189, 248, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: rgba(56, 189, 248, 0.15);
             color: var(--accent-cyan);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
         }
 
         .stat-info h4 { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; }
-        .stat-info .val { font-size: 1.4rem; font-weight: 700; color: #fff; margin-top: 4px; }
+        .stat-info .val { font-size: 1.45rem; font-weight: 700; color: #fff; margin-top: 4px; }
 
         .register-banner {
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.12), rgba(56, 189, 248, 0.05));
-            border: 1px solid rgba(0, 242, 254, 0.4);
-            border-radius: 16px;
-            padding: 20px 28px;
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(56, 189, 248, 0.05));
+            border: 1px solid rgba(0, 242, 254, 0.5);
+            border-radius: 18px;
+            padding: 22px 30px;
             margin-bottom: 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 20px;
-            flex-wrap: wrap;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.1);
         }
 
         .zoom-widget {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.8));
-            border: 1px solid rgba(56, 189, 248, 0.4);
-            border-radius: 20px;
-            padding: 28px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.85));
+            border: 1px solid rgba(56, 189, 248, 0.5);
+            border-radius: 22px;
+            padding: 30px;
             margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         .zoom-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 28px;
             align-items: center;
         }
 
@@ -135,7 +188,7 @@
         .form-control {
             width: 100%;
             padding: 12px 16px;
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(15, 23, 42, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 10px;
             color: #fff;
@@ -158,14 +211,20 @@
             justify-content: center;
             gap: 10px;
             text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-checkin:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.4);
         }
 
         .rules-card {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
-            backdrop-filter: blur(12px);
-            border-radius: 20px;
-            padding: 28px;
+            backdrop-filter: blur(16px);
+            border-radius: 22px;
+            padding: 30px;
             margin-bottom: 40px;
         }
 
@@ -173,14 +232,14 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin-top: 22px;
         }
 
         .rule-box {
-            background: rgba(15, 23, 42, 0.5);
+            background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 14px;
-            padding: 20px;
+            border-radius: 16px;
+            padding: 22px;
         }
 
         .rule-box h4 {
@@ -207,7 +266,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .section-title { font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 12px; }
+        .section-title { font-size: 1.55rem; font-weight: 800; display: flex; align-items: center; gap: 12px; }
         .section-title i { color: var(--accent-cyan); }
 
         .fleet-grid {
@@ -220,25 +279,32 @@
         .chuyen-co-card {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
-            backdrop-filter: blur(12px);
-            border-radius: 20px;
-            padding: 24px;
+            backdrop-filter: blur(16px);
+            border-radius: 22px;
+            padding: 26px;
+            transition: all 0.3s ease;
         }
 
-        .card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-        .chuyen-co-title { font-size: 1.3rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px; }
+        .chuyen-co-card:hover {
+            border-color: rgba(0, 242, 254, 0.6);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+        .chuyen-co-title { font-size: 1.35rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px; }
         .chuyen-co-title i { color: var(--accent-cyan); }
 
-        .member-count { background: rgba(56, 189, 248, 0.1); color: var(--accent-blue); padding: 4px 10px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; }
+        .member-count { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); padding: 4px 12px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; }
 
         .bdh-pair {
-            background: rgba(192, 132, 252, 0.1);
-            border: 1px dashed rgba(192, 132, 252, 0.3);
+            background: rgba(192, 132, 252, 0.12);
+            border: 1px dashed rgba(192, 132, 252, 0.4);
             color: var(--accent-purple);
-            padding: 8px 12px;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            margin-bottom: 12px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            margin-bottom: 14px;
         }
 
         .member-list { list-style: none; }
@@ -246,11 +312,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 12px;
-            margin-bottom: 6px;
-            background: rgba(15, 23, 42, 0.4);
-            border-radius: 8px;
-            font-size: 0.9rem;
+            padding: 11px 14px;
+            margin-bottom: 7px;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 10px;
+            font-size: 0.92rem;
+            border: 1px solid rgba(255, 255, 255, 0.03);
         }
 
         .role-captain { color: var(--accent-gold); font-weight: 700; }
@@ -259,55 +326,66 @@
         .table-container {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
-            border-radius: 20px;
+            border-radius: 22px;
             overflow: hidden;
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
             margin-bottom: 40px;
         }
 
         table { width: 100%; border-collapse: collapse; text-align: left; }
-        th { background: rgba(30, 41, 59, 0.8); color: var(--accent-cyan); padding: 16px 20px; font-size: 0.9rem; text-transform: uppercase; }
-        td { padding: 16px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.95rem; }
+        th { background: rgba(30, 41, 59, 0.85); color: var(--accent-cyan); padding: 18px 22px; font-size: 0.95rem; text-transform: uppercase; }
+        td { padding: 18px 22px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.95rem; }
 
-        .price-badge { display: inline-block; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 0.9rem; }
-        .price-de-nhat { background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); }
-        .price-chuyen-co { background: rgba(244, 63, 94, 0.15); color: #fb7185; }
+        .price-badge { display: inline-block; padding: 5px 12px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; }
+        .price-de-nhat { background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); }
+        .price-chuyen-co { background: rgba(244, 63, 94, 0.18); color: #fb7185; }
 
-        footer { text-align: center; padding: 30px 0; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+        footer { text-align: center; padding: 35px 0; color: var(--text-muted); font-size: 0.92rem; border-top: 1px solid rgba(255, 255, 255, 0.08); }
         footer a { color: var(--accent-cyan); text-decoration: none; }
     </style>
 </head>
 <body>
 
+    <!-- STARRY NIGHT SKY BACKGROUND -->
+    <div class="stars-bg" id="starsBg">
+        <div class="shooting-star"></div>
+    </div>
+
     <div class="container">
         <!-- HEADER -->
         <header>
-            <div class="badge-commander"><i class="fa-solid fa-crown"></i> TỔNG CHỈ HUY BAY: TUẤN TỬ TẾ</div>
+            <div class="badge-commander">
+                <i class="fa-solid fa-crown"></i>
+                <span>TỔNG CHỈ HUY BAY: TUẤN TỬ TẾ</span>
+            </div>
             <h1 class="main-title">BẦU TRỜI KIẾN TẠO CUỘC SỐNG xAI</h1>
-            <p class="subtitle">Trung Tâm Điều Hành Hàng Không – Nơi cất cánh, bứt phá giới hạn bản thân toàn diện về Thân – Tâm – Trí cấp số nhân trong kỷ nguyên trí tuệ nhân tạo.</p>
+            <p class="subtitle">
+                Trung Tâm Điều Hành Hàng Không – Nơi cất cánh, bứt phá giới hạn bản thân toàn diện về <strong>Thân – Tâm – Trí</strong> cấp số nhân trong kỷ nguyên trí tuệ nhân tạo.
+            </p>
         </header>
 
         <!-- REGISTER FORM BANNER -->
         <div class="register-banner">
             <div style="display: flex; align-items: center; gap: 16px;">
-                <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(0, 242, 254, 0.15); color: var(--accent-cyan); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                <div style="width: 50px; height: 50px; border-radius: 14px; background: rgba(0, 242, 254, 0.18); color: var(--accent-cyan); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
                     <i class="fa-solid fa-file-signature"></i>
                 </div>
                 <div>
-                    <h3 style="font-size: 1.2rem; font-weight: 700; color: #fff;">Đăng Ký Hành Khách Mới Bầu Trời KTCS xAI</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 2px;">Điền thông tin để tự động xếp vào Chuyên Cơ tiếp theo và cất cánh cùng lớp học</p>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff;">Đăng Ký Hành Khách Mới Bầu Trời KTCS xAI</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; margin-top: 3px;">Điền thông tin để tự động xếp vào Chuyên Cơ tiếp theo và cất cánh cùng lớp học</p>
                 </div>
             </div>
-            <a href="https://forms.gle/MtMxDXu4xvgsY2Ys7" target="_blank" class="btn-checkin" style="width: auto; padding: 12px 24px; font-size: 0.95rem;">
+            <a href="https://forms.gle/MtMxDXu4xvgsY2Ys7" target="_blank" class="btn-checkin" style="width: auto; padding: 12px 26px; font-size: 0.95rem;">
                 <i class="fa-solid fa-paper-plane"></i> ĐIỀN FORM ĐĂNG KÝ NGAY
             </a>
         </div>
 
+        <!-- BANNER STATS -->
         <div class="banner-grid">
             <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-jet-fighter"></i></div><div class="stat-info"><h4>Chuyên Cơ</h4><div class="val">9 Doanh Nghiệp Thu Nhỏ</div></div></div>
             <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><div class="stat-info"><h4>Tổ Bay</h4><div class="val">68 Học Viên</div></div></div>
             <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-shield-halved"></i></div><div class="stat-info"><h4>Ban Điều Hành Bay</h4><div class="val">6 Nhân Sự</div></div></div>
-            <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div><div class="stat-info"><h4>Đào Tạo Zoom</h4><div class="val">20:00 T4 & T7</div></div></div>
+            <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div><div class="stat-info"><h4>Đào Tạo Zoom</h4><div class="val">19:45 T4 & T7</div></div></div>
         </div>
 
         <!-- THỂ LỆ & NGUYÊN TẮC BẦU TRỜI KTCS xAI -->
@@ -327,7 +405,7 @@
                 </div>
                 <div class="rule-box">
                     <h4><i class="fa-solid fa-graduation-cap"></i> Trạm Nạp Trí Tuệ Zoom</h4>
-                    <p>Có mặt đúng giờ và tham gia trọn vẹn lớp học Zoom trực tuyến lúc 20h00 Thứ 4 & Thứ 7 hàng tuần (đến hết năm 2026).</p>
+                    <p>Có mặt đúng giờ và tham gia trọn vẹn lớp học Zoom trực tuyến lúc <strong>19h45 Thứ 4 & Thứ 7</strong> hàng tuần (đến hết năm 2026).</p>
                 </div>
                 <div class="rule-box">
                     <h4><i class="fa-solid fa-share-nodes"></i> Đài Phát Sóng Facebook</h4>
@@ -345,9 +423,9 @@
             <div class="zoom-grid">
                 <div>
                     <div style="color: #4ade80; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px;"><i class="fa-solid fa-circle-dot"></i> CỔNG ĐIỂM DANH TỔ BAY ZOOM MEETING</div>
-                    <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 10px;">Lịch Đào Tạo 20h00 Thứ 4 & Thứ 7</h2>
-                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">Đúng 20h00 mỗi buổi Zoom, các thành viên Tổ Bay chọn Tên & Chuyên Cơ để điểm danh.</p>
-                    <a href="https://us06web.zoom.us/j/6266266868?pwd=7M8eNnqWXePqUqmIv2Y5GabHzVVdZz.1" target="_blank" class="btn-checkin" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: #fff;"><i class="fa-solid fa-video"></i> VÀO PHÒNG ZOOM NGAY</a>
+                    <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 10px;">Lịch Đào Tạo 19h45 Thứ 4 & Thứ 7</h2>
+                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">Đúng <strong>19h45</strong> mỗi buổi Zoom, các thành viên Tổ Bay chọn Tên & Chuyên Cơ để điểm danh.</p>
+                    <a href="https://us06web.zoom.us/j/6266266868?pwd=7M8eNnqWXePqUqmIv2Y5GabHzVVdZz.1" target="_blank" class="btn-checkin" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: #fff;"><i class="fa-solid fa-video"></i> VÀO PHÒNG ZOOM NGAY (19H45)</a>
                 </div>
                 <div style="background: rgba(15, 23, 42, 0.5); padding: 20px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.08);">
                     <form id="attendanceForm" onsubmit="handleCheckin(event)">
@@ -521,7 +599,22 @@
         </footer>
     </div>
 
+    <!-- DYNAMIC STARS GENERATOR -->
     <script>
+        const starsBg = document.getElementById('starsBg');
+        for (let i = 0; i < 160; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            const size = Math.random() * 3 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
+            star.style.setProperty('--opacity', `${Math.random() * 0.7 + 0.3}`);
+            starsBg.appendChild(star);
+        }
+
         function handleCheckin(e) {
             e.preventDefault();
             const name = document.getElementById('studentName').value;
