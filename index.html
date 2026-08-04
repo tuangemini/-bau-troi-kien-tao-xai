@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bầu Trời Kiến Tạo Cuộc Sống xAI - Flight Operations Center</title>
+    <title>Bầu Trời Kiến Tạo Cuộc Sống xAI - Control & Attendance Center</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -14,6 +14,7 @@
             --accent-cyan: #00f2fe;
             --accent-blue: #38bdf8;
             --accent-gold: #fbbf24;
+            --accent-green: #4ade80;
             --accent-purple: #c084fc;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
@@ -30,22 +31,15 @@
             overflow-x: hidden;
         }
 
-        /* NỀN BẦU TRỜI ĐẦY SAO LẤP LÁNH */
         .stars-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
             background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #030712 100%);
             overflow: hidden;
         }
 
         .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
+            position: absolute; background: white; border-radius: 50%;
             animation: twinkle var(--duration, 3s) infinite ease-in-out;
             opacity: var(--opacity, 0.8);
         }
@@ -55,97 +49,44 @@
             50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px #00f2fe; }
         }
 
-        .shooting-star {
-            position: absolute;
-            top: 10%;
-            left: 50%;
-            width: 120px;
-            height: 2px;
-            background: linear-gradient(90deg, rgba(255,255,255,1), transparent);
-            animation: shoot 5s infinite ease-in-out;
-            transform: rotate(-35deg);
-            opacity: 0;
-        }
-
-        @keyframes shoot {
-            0% { transform: translateX(0) translateY(0) rotate(-35deg); opacity: 1; }
-            30% { transform: translateX(-500px) translateY(350px) rotate(-35deg); opacity: 0; }
-            100% { opacity: 0; }
-        }
-
         .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
-
         header { padding: 45px 0 25px; text-align: center; }
 
         .badge-commander {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            display: inline-flex; align-items: center; gap: 8px;
             background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.08));
             border: 1px solid rgba(251, 191, 36, 0.4);
             color: var(--accent-gold);
-            padding: 8px 20px;
-            border-radius: 999px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 18px;
+            padding: 8px 20px; border-radius: 999px;
+            font-size: 0.95rem; font-weight: 700; margin-bottom: 18px;
             box-shadow: 0 0 25px rgba(251, 191, 36, 0.2);
         }
 
         h1.main-title {
-            font-size: 3rem;
-            font-weight: 800;
+            font-size: 3rem; font-weight: 800;
             background: linear-gradient(135deg, #ffffff 0%, #38bdf8 50%, #00f2fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 14px;
-            letter-spacing: -0.5px;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 14px; letter-spacing: -0.5px;
             text-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
         }
 
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1.15rem;
-            max-width: 750px;
-            margin: 0 auto 28px;
-            line-height: 1.6;
-        }
+        .subtitle { color: var(--text-muted); font-size: 1.15rem; max-width: 750px; margin: 0 auto 28px; line-height: 1.6; }
 
         .banner-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 16px;
-            margin-bottom: 35px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px; margin-bottom: 35px;
         }
 
         .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            backdrop-filter: blur(16px);
-            border-radius: 18px;
-            padding: 22px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 242, 254, 0.6);
-            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);
+            background: var(--bg-card); border: 1px solid var(--border-card);
+            backdrop-filter: blur(16px); border-radius: 18px; padding: 22px;
+            display: flex; align-items: center; gap: 16px; transition: all 0.3s ease;
         }
 
         .stat-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 14px;
-            background: rgba(56, 189, 248, 0.15);
-            color: var(--accent-cyan);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
+            width: 50px; height: 50px; border-radius: 14px;
+            background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
         }
 
         .stat-info h4 { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; }
@@ -153,15 +94,9 @@
 
         .register-banner {
             background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(56, 189, 248, 0.05));
-            border: 1px solid rgba(0, 242, 254, 0.5);
-            border-radius: 18px;
-            padding: 22px 30px;
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.5); border-radius: 18px;
+            padding: 22px 30px; margin-bottom: 40px;
+            display: flex; align-items: center; justify-content: space-between; gap: 20px;
         }
 
         .zoom-widget {
@@ -197,141 +132,51 @@
         }
 
         .btn-checkin {
-            width: 100%;
-            padding: 14px;
+            padding: 14px 24px;
             background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-            border: none;
-            border-radius: 10px;
-            color: #000;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-decoration: none;
-            transition: all 0.3s;
+            border: none; border-radius: 10px; color: #000; font-weight: 700;
+            font-size: 1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
         }
 
-        .btn-checkin:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.4);
+        .leaderboard-container {
+            background: var(--bg-card); border: 1px solid var(--border-card);
+            backdrop-filter: blur(16px); border-radius: 22px; padding: 28px; margin-bottom: 40px;
         }
 
-        .rules-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            backdrop-filter: blur(16px);
-            border-radius: 22px;
-            padding: 30px;
-            margin-bottom: 40px;
+        .leader-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 20px; }
+        .leader-item { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 18px; }
+
+        .rank-badge {
+            width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800;
         }
+        .rank-1 { background: rgba(251, 191, 36, 0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+        .rank-2 { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid #cbd5e1; }
+        .rank-3 { background: rgba(217, 119, 6, 0.2); color: #f59e0b; border: 1px solid #f59e0b; }
 
-        .rules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 22px;
-        }
+        .progress-bar-bg { width: 100%; height: 8px; background: rgba(255, 255, 255, 0.1); border-radius: 999px; overflow: hidden; margin-top: 8px; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #00f2fe, #4facfe); border-radius: 999px; }
 
-        .rule-box {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 22px;
-        }
+        .fleet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(370px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .chuyen-co-card { background: var(--bg-card); border: 1px solid var(--border-card); backdrop-filter: blur(16px); border-radius: 22px; padding: 26px; }
 
-        .rule-box h4 {
-            color: var(--accent-cyan);
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .rule-box p {
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            line-height: 1.6;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .section-title { font-size: 1.55rem; font-weight: 800; display: flex; align-items: center; gap: 12px; }
-        .section-title i { color: var(--accent-cyan); }
-
-        .fleet-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-
-        .chuyen-co-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            backdrop-filter: blur(16px);
-            border-radius: 22px;
-            padding: 26px;
-            transition: all 0.3s ease;
-        }
-
-        .chuyen-co-card:hover {
-            border-color: rgba(0, 242, 254, 0.6);
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+        .card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
         .chuyen-co-title { font-size: 1.35rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px; }
-        .chuyen-co-title i { color: var(--accent-cyan); }
 
-        .member-count { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); padding: 4px 12px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; }
+        .status-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; }
+        .pill-100 { background: rgba(74, 222, 128, 0.15); color: var(--accent-green); border: 1px solid rgba(74, 222, 128, 0.3); }
 
-        .bdh-pair {
-            background: rgba(192, 132, 252, 0.12);
-            border: 1px dashed rgba(192, 132, 252, 0.4);
-            color: var(--accent-purple);
-            padding: 10px 14px;
-            border-radius: 12px;
-            font-size: 0.88rem;
-            margin-bottom: 14px;
-        }
-
+        .bdh-pair { background: rgba(192, 132, 252, 0.12); border: 1px dashed rgba(192, 132, 252, 0.4); color: var(--accent-purple); padding: 10px 14px; border-radius: 12px; font-size: 0.88rem; margin-bottom: 14px; }
         .member-list { list-style: none; }
-        .member-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 11px 14px;
-            margin-bottom: 7px;
-            background: rgba(15, 23, 42, 0.5);
-            border-radius: 10px;
-            font-size: 0.92rem;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-        }
+        .member-item { display: flex; flex-direction: column; gap: 6px; padding: 10px 14px; margin-bottom: 8px; background: rgba(15, 23, 42, 0.5); border-radius: 12px; font-size: 0.92rem; border: 1px solid rgba(255, 255, 255, 0.04); }
+
+        .member-row-top { display: flex; align-items: center; justify-content: space-between; }
+        .metrics-badges { display: flex; gap: 8px; font-size: 0.75rem; }
+        .badge-metric.done { background: rgba(74, 222, 128, 0.15); color: #4ade80; padding: 3px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; }
 
         .role-captain { color: var(--accent-gold); font-weight: 700; }
         .role-copilot { color: var(--accent-blue); font-weight: 600; }
 
-        .table-container {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: 22px;
-            overflow: hidden;
-            backdrop-filter: blur(16px);
-            margin-bottom: 40px;
-        }
-
+        .table-container { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 22px; overflow: hidden; backdrop-filter: blur(16px); margin-bottom: 40px; }
         table { width: 100%; border-collapse: collapse; text-align: left; }
         th { background: rgba(30, 41, 59, 0.85); color: var(--accent-cyan); padding: 18px 22px; font-size: 0.95rem; text-transform: uppercase; }
         td { padding: 18px 22px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.95rem; }
@@ -341,290 +186,4 @@
         .price-chuyen-co { background: rgba(244, 63, 94, 0.18); color: #fb7185; }
 
         footer { text-align: center; padding: 35px 0; color: var(--text-muted); font-size: 0.92rem; border-top: 1px solid rgba(255, 255, 255, 0.08); }
-        footer a { color: var(--accent-cyan); text-decoration: none; }
-    </style>
-</head>
-<body>
-
-    <!-- STARRY NIGHT SKY BACKGROUND -->
-    <div class="stars-bg" id="starsBg">
-        <div class="shooting-star"></div>
-    </div>
-
-    <div class="container">
-        <!-- HEADER -->
-        <header>
-            <div class="badge-commander"><i class="fa-solid fa-crown"></i> TỔNG CHỈ HUY BAY: TUẤN TỬ TẾ</div>
-            <h1 class="main-title">BẦU TRỜI KIẾN TẠO CUỘC SỐNG xAI</h1>
-            <p class="subtitle">Trung Tâm Điều Hành Hàng Không – Nơi cất cánh, bứt phá giới hạn bản thân toàn diện về Thân – Tâm – Trí cấp số nhân trong kỷ nguyên trí tuệ nhân tạo.</p>
-        </header>
-
-        <!-- REGISTER FORM BANNER -->
-        <div class="register-banner">
-            <div style="display: flex; align-items: center; gap: 16px;">
-                <div style="width: 50px; height: 50px; border-radius: 14px; background: rgba(0, 242, 254, 0.18); color: var(--accent-cyan); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
-                    <i class="fa-solid fa-file-signature"></i>
-                </div>
-                <div>
-                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff;">Đăng Ký Hành Khách Mới Bầu Trời KTCS xAI</h3>
-                    <p style="color: var(--text-muted); font-size: 0.92rem; margin-top: 3px;">Điền thông tin để tự động xếp vào Chuyên Cơ tiếp theo và cất cánh cùng lớp học</p>
-                </div>
-            </div>
-            <a href="https://forms.gle/MtMxDXu4xvgsY2Ys7" target="_blank" class="btn-checkin" style="width: auto; padding: 12px 26px; font-size: 0.95rem;">
-                <i class="fa-solid fa-paper-plane"></i> ĐIỀN FORM ĐĂNG KÝ NGAY
-            </a>
-        </div>
-
-        <!-- BANNER STATS -->
-        <div class="banner-grid">
-            <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-jet-fighter"></i></div><div class="stat-info"><h4>Chuyên Cơ</h4><div class="val">9 Doanh Nghiệp Thu Nhỏ</div></div></div>
-            <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><div class="stat-info"><h4>Tổ Bay</h4><div class="val">72 Học Viên</div></div></div>
-            <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-shield-halved"></i></div><div class="stat-info"><h4>Ban Điều Hành Bay</h4><div class="val">6 Nhân Sự</div></div></div>
-            <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div><div class="stat-info"><h4>Đào Tạo Zoom</h4><div class="val">19:45 T4 & T7</div></div></div>
-        </div>
-
-        <!-- THỂ LỆ & NGUYÊN TẮC BẦU TRỜI KTCS xAI -->
-        <div class="rules-card">
-            <div class="section-title" style="margin-bottom: 12px;">
-                <i class="fa-solid fa-compass"></i>
-                <span>THỂ LỆ & NGUYÊN TẮC VẬN HÀNH BẦU TRỜI KIẾN TẠO xAI</span>
-            </div>
-            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-                Khoá học <strong>Kiến Tạo Cuộc Sống xAI</strong> vận hành như một Bầu Trời lớn – nơi mỗi học viên là một Kiến trúc sư cho cuộc đời mình, tự quản và phát triển Chuyên Cơ (đại diện cho một Doanh nghiệp / Tổ chức thu nhỏ).
-            </p>
-
-            <div class="rules-grid">
-                <div class="rule-box">
-                    <h4><i class="fa-solid fa-person-running"></i> Động Cơ Thể Thao Vrace</h4>
-                    <p>Rèn luyện thể lực (Thân khỏe) hàng ngày và ghi nhận minh bạch kết quả trên ứng dụng Vrace.</p>
-                </div>
-                <div class="rule-box">
-                    <h4><i class="fa-solid fa-graduation-cap"></i> Trạm Nạp Trí Tuệ Zoom</h4>
-                    <p>Có mặt đúng giờ và tham gia trọn vẹn lớp học Zoom trực tuyến lúc <strong>19h45 Thứ 4 & Thứ 7</strong> hàng tuần (đến hết năm 2026).</p>
-                </div>
-                <div class="rule-box">
-                    <h4><i class="fa-solid fa-share-nodes"></i> Đài Phát Sóng Facebook</h4>
-                    <p>Thực hiện tối thiểu 3 bài post/ngày (bài viết, video, livestream, reels...) để truyền cảm hứng và lan tỏa giá trị.</p>
-                </div>
-                <div class="rule-box">
-                    <h4><i class="fa-solid fa-arrows-spin"></i> Tương Trợ Đệ Nhị Thân</h4>
-                    <p>Thiết lập Vòng tròn khép kín (1 ➔ 2 ➔ ... ➔ N ➔ 1). Người phía trước (Đệ nhất) có trách nhiệm chăm sóc và thúc đẩy người phía sau (Đệ nhị) hoàn thành trọn vẹn 3 nhiệm vụ mỗi ngày.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- CHECK-IN ZOOM WIDGET -->
-        <div class="zoom-widget" id="checkin">
-            <div class="zoom-grid">
-                <div>
-                    <div style="color: #4ade80; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px;"><i class="fa-solid fa-circle-dot"></i> CỔNG ĐIỂM DANH TỔ BAY ZOOM MEETING</div>
-                    <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 10px;">Lịch Đào Tạo 19h45 Thứ 4 & Thứ 7</h2>
-                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">Đúng <strong>19h45</strong> mỗi buổi Zoom, các thành viên Tổ Bay chọn Tên & Chuyên Cơ để điểm danh.</p>
-                    <a href="https://us06web.zoom.us/j/6266266868?pwd=7M8eNnqWXePqUqmIv2Y5GabHzVVdZz.1" target="_blank" class="btn-checkin" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: #fff;"><i class="fa-solid fa-video"></i> VÀO PHÒNG ZOOM NGAY (19H45)</a>
-                </div>
-                <div style="background: rgba(15, 23, 42, 0.5); padding: 20px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.08);">
-                    <form id="attendanceForm" onsubmit="handleCheckin(event)">
-                        <div class="form-group"><label>Họ và Tên Thành Viên Tổ Bay</label><input type="text" id="studentName" class="form-control" placeholder="Nhập đầy đủ họ tên..." required></div>
-                        <div class="form-group"><label>Chọn Chuyên Cơ</label><select id="chuyenCoSelect" class="form-control" required><option value="">-- Chọn Chuyên Cơ --</option><option value="1">Chuyên Cơ 1</option><option value="2">Chuyên Cơ 2</option><option value="3">Chuyên Cơ 3</option><option value="4">Chuyên Cơ 4</option><option value="5">Chuyên Cơ 5</option><option value="6">Chuyên Cơ 6</option><option value="7">Chuyên Cơ 7</option><option value="8">Chuyên Cơ 8</option><option value="9">Chuyên Cơ 9</option></select></div>
-                        <button type="submit" class="btn-checkin"><i class="fa-solid fa-paper-plane"></i> XÁC NHẬN ĐIỂM DANH BAY</button>
-                    </form>
-                    <div id="checkinMsg" style="margin-top: 12px; font-size: 0.9rem; font-weight: 600; display: none;"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-header"><div class="section-title"><i class="fa-solid fa-radar"></i> <span>SƠ ĐỒ TỔ BAY 9 CHUYÊN CƠ TỰ QUẢN</span></div></div>
-
-        <div class="fleet-grid">
-            <!-- CHUYEN CO 1 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 1</div><span class="member-count">8 Thành Viên</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Hoàng Thị Phương Tú & Đỗ Thị Bích Ngân</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><span class="role-captain">1. Vũ Quang Thiều</span> <span style="color: var(--accent-gold); font-size: 0.8rem;">Cơ Trưởng</span></li>
-                    <li class="member-item"><span class="role-copilot">2. LÊ THỊ QUỲNH</span> <span style="color: var(--accent-blue); font-size: 0.8rem;">Cơ Phó</span></li>
-                    <li class="member-item"><span>3. Ái Tịnh Trần</span></li>
-                    <li class="member-item"><span>4. Lăng Đình Cường</span></li>
-                    <li class="member-item"><span>5. Nguyễn Bá Thành</span></li>
-                    <li class="member-item"><span>6. đỗ minh vương</span></li>
-                    <li class="member-item"><span>7. Ngô Thị Thu Anh</span></li>
-                    <li class="member-item"><span>8. Đoàn Thị Mai Hương</span></li>
-                </ul>
-            </div>
-
-            <!-- CHUYEN CO 2 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 2</div><span class="member-count">8 Thành Viên</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Thuỳ Dung & Nguyễn Duy Anh</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><span class="role-captain">1. NGUYỄN THANH BÌNH</span> <span style="color: var(--accent-gold); font-size: 0.8rem;">Cơ Trưởng</span></li>
-                    <li class="member-item"><span class="role-copilot">2. Nguyễn Việt Cường</span> <span style="color: var(--accent-blue); font-size: 0.8rem;">Cơ Phó</span></li>
-                    <li class="member-item"><span>3. Nguyễn Huy Hoàng</span></li>
-                    <li class="member-item"><span>4. TRÀ THỊ LỆ MỸ</span></li>
-                    <li class="member-item"><span>5. Thinh</span></li>
-                    <li class="member-item"><span>6. Hiếu</span></li>
-                    <li class="member-item"><span>7. Khúc Văn Tuấn</span></li>
-                    <li class="member-item"><span>8. Bùi Thị Hòa</span></li>
-                </ul>
-            </div>
-
-            <!-- CHUYEN CO 3 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 3</div><span class="member-count">8 Thành Viên</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Mai Thị Hường & Lưu Hiền Dung</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><span class="role-captain">1. Lương Thùy Ninh</span> <span style="color: var(--accent-gold); font-size: 0.8rem;">Cơ Trưởng</span></li>
-                    <li class="member-item"><span class="role-copilot">2. Bùi Ngọc Đức</span> <span style="color: var(--accent-blue); font-size: 0.8rem;">Cơ Phó</span></li>
-                    <li class="member-item"><span>3. LÊ QUỐC DŨNG</span></li>
-                    <li class="member-item"><span>4. Chiến Nguyễn Vĩnh</span></li>
-                    <li class="member-item"><span>5. Lê Thanh</span></li>
-                    <li class="member-item"><span>6. Nguyễn Văn Khương</span></li>
-                    <li class="member-item"><span>7. Ngô thị pháp</span></li>
-                    <li class="member-item"><span>8. Nguyễn Thị Hồng</span></li>
-                </ul>
-            </div>
-
-            <!-- CHUYEN CO 4 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 4</div><span class="member-count">8 Thành Viên</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Hoàng Thị Phương Tú & Đỗ Thị Bích Ngân</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><span class="role-captain">1. Trương Trần Thế Quang</span> <span style="color: var(--accent-gold); font-size: 0.8rem;">Cơ Trưởng</span></li>
-                    <li class="member-item"><span class="role-copilot">2. Nông Minh Hoà</span> <span style="color: var(--accent-blue); font-size: 0.8rem;">Cơ Phó</span></li>
-                    <li class="member-item"><span>3. Nguyễn Ngô Ban</span></li>
-                    <li class="member-item"><span>4. Nguyễn Thị Huyền</span></li>
-                    <li class="member-item"><span>5. Phan Xuân Doanh Doanh</span></li>
-                    <li class="member-item"><span>6. Nguyễn Thị Bích Vân</span></li>
-                    <li class="member-item"><span>7. Phạm Hoàng Bắc</span></li>
-                    <li class="member-item"><span>8. Quách Minh Châu</span></li>
-                </ul>
-            </div>
-
-            <!-- CHUYEN CO 5 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 5</div><span class="member-count">8 Thành Viên</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Thuỳ Dung & Nguyễn Duy Anh</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><span class="role-captain">1. Lê Văn Hưởng</span> <span style="color: var(--accent-gold); font-size: 0.8rem;">Cơ Trưởng</span></li>
-                    <li class="member-item"><span class="role-copilot">2. Trần Thị Kim Anh</span> <span style="color: var(--accent-blue); font-size: 0.8rem;">Cơ Phó</span></li>
-                    <li class="member-item"><span>3. NGUYỄN THỊ HOA</span></li>
-                    <li class="member-item"><span>4. Nguyễn Duy Hùng</span></li>
-                    <li class="member-item"><span>5. Dương Thành Hảo</span></li>
-                    <li class="member-item"><span>6. Nguyễn Anh Tú</span></li>
-                    <li class="member-item"><span>7. Trịnh Công Vương</span></li>
-                    <li class="member-item"><span>8. Phạm Quang Hồng</span></li>
-                </ul>
-            </div>
-
-            <!-- CHUYEN CO 6 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 6</div><span class="member-count">8 Thành Viên</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Mai Thị Hường & Lưu Hiền Dung</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><span class="role-captain">1. Ừng Chúng Khoán</span> <span style="color: var(--accent-gold); font-size: 0.8rem;">Cơ Trưởng</span></li>
-                    <li class="member-item"><span class="role-copilot">2. Lê Thị Vân Anh</span> <span style="color: var(--accent-blue); font-size: 0.8rem;">Cơ Phó</span></li>
-                    <li class="member-item"><span>3. Myhuong Phan</span></li>
-                    <li class="member-item"><span>4. Phan Minh Châu</span></li>
-                    <li class="member-item"><span>5. Nguyễn Tiến Túc</span></li>
-                    <li class="member-item"><span>6. Lê Thị Luyên</span></li>
-                    <li class="member-item"><span>7. Lê Văn Hào</span></li>
-                    <li class="member-item"><span>8. Phạm Anh Tuấn</span></li>
-                </ul>
-            </div>
-
-            <!-- CHUYEN CO 7 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 7</div><span class="member-count">8 Thành Viên</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Hoàng Thị Phương Tú & Đỗ Thị Bích Ngân</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><span class="role-captain">1. Nguyễn Thị Hương</span> <span style="color: var(--accent-gold); font-size: 0.8rem;">Cơ Trưởng</span></li>
-                    <li class="member-item"><span class="role-copilot">2. Nguyễn Thị Hồng Thịnh</span> <span style="color: var(--accent-blue); font-size: 0.8rem;">Cơ Phó</span></li>
-                    <li class="member-item"><span>3. DANG MINH HAN</span></li>
-                    <li class="member-item"><span>4. Ngọc Linh</span></li>
-                    <li class="member-item"><span>5. Nguyễn Thị Thạo</span></li>
-                    <li class="member-item"><span>6. Nguyễn Thị Ngọc</span></li>
-                    <li class="member-item"><span>7. TRỊNH THỊ AN</span></li>
-                    <li class="member-item"><span>8. Nguyễn Kiêm Thành</span></li>
-                </ul>
-            </div>
-
-            <!-- CHUYEN CO 8 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 8</div><span class="member-count">8 Thành Viên</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Thuỳ Dung & Nguyễn Duy Anh</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><span class="role-captain">1. Nguyễn Thị Hiếu</span> <span style="color: var(--accent-gold); font-size: 0.8rem;">Cơ Trưởng</span></li>
-                    <li class="member-item"><span class="role-copilot">2. CAO HẰNG</span> <span style="color: var(--accent-blue); font-size: 0.8rem;">Cơ Phó</span></li>
-                    <li class="member-item"><span>3. Nguyễn thị Như Nguyện</span></li>
-                    <li class="member-item"><span>4. Đặng Thị Kề</span></li>
-                    <li class="member-item"><span>5. Lê Hoài Thương</span></li>
-                    <li class="member-item"><span>6. NGUYỄN THỊ THU THỦY</span></li>
-                    <li class="member-item"><span>7. Văn thị xuân</span></li>
-                    <li class="member-item"><span>8. ĐÀO QUANG TUYÊN</span></li>
-                </ul>
-            </div>
-
-            <!-- CHUYEN CO 9 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 9</div><span class="member-count">8 Thành Viên</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Mai Thị Hường & Lưu Hiền Dung</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><span class="role-captain">1. Nông Phong</span> <span style="color: var(--accent-gold); font-size: 0.8rem;">Cơ Trưởng</span></li>
-                    <li class="member-item"><span class="role-copilot">2. Lan Bình</span> <span style="color: var(--accent-blue); font-size: 0.8rem;">Cơ Phó</span></li>
-                    <li class="member-item"><span>3. Truc Ta</span></li>
-                    <li class="member-item"><span>4. Quang Thị Phương Liên</span></li>
-                    <li class="member-item"><span>5. Mydung Dang</span></li>
-                    <li class="member-item"><span>6. Đỗ Văn Hậu</span></li>
-                    <li class="member-item"><span>7. Nguyễn Kim Tuyến</span></li>
-                    <li class="member-item"><span>8. Dương Thùy Sinh</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="table-container">
-            <table>
-                <thead><tr><th>STT</th><th>Nội Dung Chưa Hoàn Thành</th><th>Mức Gieo Hạt Của Đệ Nhất Thân</th><th>Mức Gieo Hạt Của Cả Chuyên Cơ</th></tr></thead>
-                <tbody>
-                    <tr><td>1</td><td><strong>Thể thao Vrace</strong> (Thiếu 1 buổi/ngày)</td><td><span class="price-badge price-de-nhat">100.000 VNĐ</span></td><td><span class="price-badge price-chuyen-co">200.000 VNĐ</span></td></tr>
-                    <tr><td>2</td><td><strong>Lớp học Zoom</strong> (Vắng 1 buổi học)</td><td><span class="price-badge price-de-nhat">200.000 VNĐ</span></td><td><span class="price-badge price-chuyen-co">500.000 VNĐ</span></td></tr>
-                    <tr><td>3</td><td><strong>Truyền thông Facebook</strong> (Thiếu 1 bài post/ngày)</td><td><span class="price-badge price-de-nhat">50.000 VNĐ</span></td><td><span class="price-badge price-chuyen-co">100.000 VNĐ</span></td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <footer>
-            <p>© 2026 <strong>Bầu Trời Kiến Tạo Cuộc Sống xAI</strong>. Điều hành bởi <strong>Tuấn Tử Tế</strong> & Ban Điều Hành Bay.</p>
-            <p style="margin-top: 8px;">Dữ liệu đồng bộ trực tiếp từ <a href="https://docs.google.com/spreadsheets/d/1CfKOb1y0AS2DH0i7ErZaxtnsl5uLUbYS3wmODjtUlCg/edit" target="_blank">Google Sheets Lớp Học</a>.</p>
-        </footer>
-    </div>
-
-    <!-- DYNAMIC STARS GENERATOR -->
-    <script>
-        const starsBg = document.getElementById('starsBg');
-        for (let i = 0; i < 160; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.top = `${Math.random() * 100}%`;
-            const size = Math.random() * 3 + 1;
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-            star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
-            star.style.setProperty('--opacity', `${Math.random() * 0.7 + 0.3}`);
-            starsBg.appendChild(star);
-        }
-
-        function handleCheckin(e) {
-            e.preventDefault();
-            const name = document.getElementById('studentName').value;
-            const chuyenCo = document.getElementById('chuyenCoSelect').value;
-            const msg = document.getElementById('checkinMsg');
-            msg.style.display = 'block';
-            msg.style.color = '#4ade80';
-            msg.innerHTML = '<i class="fa-solid fa-circle-check"></i> Xin chúc mừng ' + name + ' (Chuyên Cơ ' + chuyenCo + ') đã điểm danh thành công chuyến bay Zoom!';
-            document.getElementById('attendanceForm').reset();
-            setTimeout(() => { msg.style.display = 'none'; }, 5000);
-        }
-    </script>
-</body>
-</html>
+        footer a { color:
