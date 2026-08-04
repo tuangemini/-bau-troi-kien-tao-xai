@@ -186,4 +186,189 @@
         .price-chuyen-co { background: rgba(244, 63, 94, 0.18); color: #fb7185; }
 
         footer { text-align: center; padding: 35px 0; color: var(--text-muted); font-size: 0.92rem; border-top: 1px solid rgba(255, 255, 255, 0.08); }
-        footer a { color:
+        footer a { color: var(--accent-cyan); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="stars-bg" id="starsBg"></div>
+
+    <div class="container">
+        <header>
+            <div class="badge-commander"><i class="fa-solid fa-crown"></i> TỔNG CHỈ HUY BAY: TUẤN TỬ TẾ</div>
+            <h1 class="main-title">BẦU TRỜI KIẾN TẠO CUỘC SỐNG xAI</h1>
+            <p class="subtitle">Trung Tâm Điều Hành & Kiểm Soát Cấp Độ Hoàn Thành – Nơi cất cánh toàn diện về <strong>Thân – Tâm – Trí</strong> trong kỷ nguyên xAI.</p>
+        </header>
+
+        <div class="register-banner">
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="width: 50px; height: 50px; border-radius: 14px; background: rgba(0, 242, 254, 0.18); color: var(--accent-cyan); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                    <i class="fa-solid fa-file-signature"></i>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff;">Đăng Ký Hành Khách Mới Bầu Trời KTCS xAI</h3>
+                    <p style="color: var(--text-muted); font-size: 0.92rem; margin-top: 3px;">Điền thông tin để tự động xếp vào Chuyên Cơ tiếp theo</p>
+                </div>
+            </div>
+            <a href="https://forms.gle/MtMxDXu4xvgsY2Ys7" target="_blank" class="btn-checkin">
+                <i class="fa-solid fa-paper-plane"></i> ĐIỀN FORM ĐĂNG KÝ NGAY
+            </a>
+        </div>
+
+        <div class="banner-grid">
+            <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-jet-fighter"></i></div><div class="stat-info"><h4>Chuyên Cơ</h4><div class="val">9 Doanh Nghiệp</div></div></div>
+            <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><div class="stat-info"><h4>Tổ Bay</h4><div class="val">74 Học Viên</div></div></div>
+            <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-shield-halved"></i></div><div class="stat-info"><h4>Ban Điều Hành</h4><div class="val">6 Nhân Sự</div></div></div>
+            <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div><div class="stat-info"><h4>Đào Tạo Zoom</h4><div class="val">20:00 T4 & T7</div></div></div>
+        </div>
+
+        <!-- CỔNG ĐIỂM DANH ZOOM MEETING WIDGET -->
+        <div class="zoom-widget" id="checkin">
+            <div class="zoom-grid">
+                <div>
+                    <div style="color: #4ade80; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px;"><i class="fa-solid fa-circle-dot"></i> CỔNG ĐIỂM DANH TỔ BAY ZOOM MEETING</div>
+                    <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 10px;">Lịch Đào Tạo 20h00 Thứ 4 & Thứ 7</h2>
+                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">Đúng <strong>20h00</strong> mỗi buổi Zoom, các thành viên Tổ Bay chọn Tên & Chuyên Cơ để điểm danh trực tiếp.</p>
+                    <a href="https://us06web.zoom.us/j/6266266868?pwd=7M8eNnqWXePqUqmIv2Y5GabHzVVdZz.1" target="_blank" class="btn-checkin" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: #fff;"><i class="fa-solid fa-video"></i> VÀO PHÒNG ZOOM NGAY (20H00)</a>
+                </div>
+                <div style="background: rgba(15, 23, 42, 0.5); padding: 20px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                    <form id="attendanceForm" onsubmit="handleCheckin(event)">
+                        <div class="form-group"><label>Họ và Tên Thành Viên Tổ Bay</label><input type="text" id="studentName" class="form-control" placeholder="Nhập đầy đủ họ tên..." required></div>
+                        <div class="form-group"><label>Chọn Chuyên Cơ</label><select id="chuyenCoSelect" class="form-control" required><option value="">-- Chọn Chuyên Cơ --</option><option value="1">Chuyên Cơ 1</option><option value="2">Chuyên Cơ 2</option><option value="3">Chuyên Cơ 3</option><option value="4">Chuyên Cơ 4</option><option value="5">Chuyên Cơ 5</option><option value="6">Chuyên Cơ 6</option><option value="7">Chuyên Cơ 7</option><option value="8">Chuyên Cơ 8</option><option value="9">Chuyên Cơ 9</option></select></div>
+                        <button type="submit" class="btn-checkin" style="width: 100%;"><i class="fa-solid fa-paper-plane"></i> XÁC NHẬN ĐIỂM DANH BAY</button>
+                    </form>
+                    <div id="checkinMsg" style="margin-top: 12px; font-size: 0.9rem; font-weight: 600; display: none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="leaderboard-container">
+            <div class="section-title"><i class="fa-solid fa-trophy"></i> <span>BẢNG XẾP HẠNG KHÍ ÁP NĂNG LƯỢNG (9 CHUYÊN CƠ)</span></div>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-top: 6px;">Tổng hợp chỉ số hoàn thành Vrace.com.vn, Zoom (20h00 T4&T7) và 3 bài post Facebook/ngày.</p>
+
+            <div class="leader-grid">
+                <div class="leader-item">
+                    <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
+                        <div class="rank-badge rank-1">1</div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.95rem; font-weight: 700;">
+                                <span>Chuyên Cơ 1</span><span style="color: var(--accent-gold);">96%</span>
+                            </div>
+                            <div class="progress-bar-bg"><div class="progress-fill" style="width: 96%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="leader-item">
+                    <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
+                        <div class="rank-badge rank-2">2</div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.95rem; font-weight: 700;">
+                                <span>Chuyên Cơ 5</span><span style="color: var(--accent-blue);">94%</span>
+                            </div>
+                            <div class="progress-bar-bg"><div class="progress-fill" style="width: 94%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="leader-item">
+                    <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
+                        <div class="rank-badge rank-3">3</div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.95rem; font-weight: 700;">
+                                <span>Chuyên Cơ 3</span><span style="color: #f59e0b;">91%</span>
+                            </div>
+                            <div class="progress-bar-bg"><div class="progress-fill" style="width: 91%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <div class="section-title"><i class="fa-solid fa-radar"></i> <span>SƠ ĐỒ TỔ BAY & CẤP ĐỘ HOÀN THÀNH TỪNG THÀNH VIÊN</span></div>
+        </div>
+
+        <div id="fleetContainer" class="fleet-grid"></div>
+
+        <div class="table-container">
+            <table>
+                <thead><tr><th>STT</th><th>Nội Dung Chưa Hoàn Thành</th><th>Mức Gieo Hạt Đệ Nhất Thân</th><th>Mức Gieo Hạt Cả Chuyên Cơ</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td><strong>Thể thao Vrace.com.vn</strong> (Thiếu 1 buổi/ngày)</td><td><span class="price-badge price-de-nhat">100.000 VNĐ</span></td><td><span class="price-badge price-chuyen-co">200.000 VNĐ</span></td></tr>
+                    <tr><td>2</td><td><strong>Lớp học Zoom 20h00</strong> (Vắng 1 buổi học)</td><td><span class="price-badge price-de-nhat">200.000 VNĐ</span></td><td><span class="price-badge price-chuyen-co">500.000 VNĐ</span></td></tr>
+                    <tr><td>3</td><td><strong>Truyền thông Facebook</strong> (Thiếu 1 bài post/ngày)</td><td><span class="price-badge price-de-nhat">50.000 VNĐ</span></td><td><span class="price-badge price-chuyen-co">100.000 VNĐ</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>© 2026 <strong>Bầu Trời Kiến Tạo Cuộc Sống xAI</strong>. Điều hành bởi <strong>Tuấn Tử Tế</strong> & Ban Điều Hành Bay.</p>
+            <p style="margin-top: 8px;">Dữ liệu đồng bộ trực tiếp từ <a href="https://docs.google.com/spreadsheets/d/1CfKOb1y0AS2DH0i7ErZaxtnsl5uLUbYS3wmODjtUlCg/edit" target="_blank">Google Sheets Lớp Học</a>.</p>
+        </footer>
+    </div>
+
+    <script>
+        const starsBg = document.getElementById('starsBg');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            const size = Math.random() * 3 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
+            star.style.setProperty('--opacity', `${Math.random() * 0.7 + 0.3}`);
+            starsBg.appendChild(star);
+        }
+
+        const fleetData = [
+            { id: 1, name: "Chuyên Cơ 1", energy: "96%", bdh: "Hoàng Thị Phương Tú & Đỗ Thị Bích Ngân", members: ["Vũ Quang Thiều (Cơ Trưởng)", "LÊ THỊ QUỲNH (Cơ Phó)", "Ái Tịnh Trần", "Lăng Đình Cường", "Nguyễn Bá Thành", "đỗ minh vương", "Ngô Thị Thu Anh", "Đoàn Thị Mai Hương", "Huỳnh Thị Thuý Nga"] },
+            { id: 2, name: "Chuyên Cơ 2", energy: "90%", bdh: "Thuỳ Dung & Nguyễn Duy Anh", members: ["NGUYỄN THANH BÌNH (Cơ Trưởng)", "Nguyễn Việt Cường (Cơ Phó)", "Nguyễn Huy Hoàng", "TRÀ THỊ LỆ MỸ", "Thinh", "Hiếu", "Khúc Văn Tuấn", "Bùi Thị Hòa", "Kim Hồng"] },
+            { id: 3, name: "Chuyên Cơ 3", energy: "91%", bdh: "Mai Thị Hường & Lưu Hiền Dung", members: ["Lương Thùy Ninh (Cơ Trưởng)", "Bùi Ngọc Đức (Cơ Phó)", "LÊ QUỐC DŨNG", "Chiến Nguyễn Vĩnh", "Lê Thanh", "Nguyễn Văn Khương", "Ngô thị pháp", "Nguyễn Thị Hồng"] },
+            { id: 4, name: "Chuyên Cơ 4", energy: "88%", bdh: "Hoàng Thị Phương Tú & Đỗ Thị Bích Ngân", members: ["Trương Trần Thế Quang (Cơ Trưởng)", "Nông Minh Hoà (Cơ Phó)", "Nguyễn Ngô Ban", "Nguyễn Thị Huyền", "Phan Xuân Doanh Doanh", "Nguyễn Thị Bích Vân", "Phạm Hoàng Bắc", "Quách Minh Châu"] },
+            { id: 5, name: "Chuyên Cơ 5", energy: "94%", bdh: "Thuỳ Dung & Nguyễn Duy Anh", members: ["Lê Văn Hưởng (Cơ Trưởng)", "Trần Thị Kim Anh (Cơ Phó)", "NGUYỄN THỊ HOA", "Nguyễn Duy Hùng", "Dương Thành Hảo", "Nguyễn Anh Tú", "Trịnh Công Vương", "Phạm Quang Hồng"] },
+            { id: 6, name: "Chuyên Cơ 6", energy: "89%", bdh: "Mai Thị Hường & Lưu Hiền Dung", members: ["Ừng Chúng Khoán (Cơ Trưởng)", "Lê Thị Vân Anh (Cơ Phó)", "Myhuong Phan", "Phan Minh Châu", "Nguyễn Tiến Túc", "Lê Thị Luyên", "Lê Văn Hào", "Phạm Anh Tuấn"] },
+            { id: 7, name: "Chuyên Cơ 7", energy: "87%", bdh: "Hoàng Thị Phương Tú & Đỗ Thị Bích Ngân", members: ["Nguyễn Thị Hương (Cơ Trưởng)", "Nguyễn Thị Hồng Thịnh (Cơ Phó)", "DANG MINH HAN", "Ngọc Linh", "Nguyễn Thị Thạo", "Nguyễn Thị Ngọc", "TRỊNH THỊ AN", "Nguyễn Kiêm Thành"] },
+            { id: 8, name: "Chuyên Cơ 8", energy: "88%", bdh: "Thuỳ Dung & Nguyễn Duy Anh", members: ["Nguyễn Thị Hiếu (Cơ Trưởng)", "CAO HẰNG (Cơ Phó)", "Nguyễn thị Như Nguyện", "Đặng Thị Kề", "Lê Hoài Thương", "NGUYỄN THỊ THU THỦY", "Văn thị xuân", "ĐÀO QUANG TUYÊN"] },
+            { id: 9, name: "Chuyên Cơ 9", energy: "86%", bdh: "Mai Thị Hường & Lưu Hiền Dung", members: ["Nông Phong (Cơ Trưởng)", "Lan Bình (Cơ Phó)", "Truc Ta", "Quang Thị Phương Liên", "Mydung Dang", "Đỗ Văn Hậu", "Nguyễn Kim Tuyến", "Dương Thùy Sinh"] }
+        ];
+
+        const container = document.getElementById('fleetContainer');
+        fleetData.forEach(cc => {
+            let memberHtml = cc.members.map((m, idx) => `
+                <li class="member-item">
+                    <div class="member-row-top"><span class="${idx===0?'role-captain':(idx===1?'role-copilot':'')}">${idx+1}. ${m}</span></div>
+                    <div class="metrics-badges">
+                        <span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span>
+                        <span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span>
+                        <span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span>
+                    </div>
+                </li>
+            `).join('');
+
+            container.innerHTML += `
+                <div class="chuyen-co-card">
+                    <div class="card-head">
+                        <div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> ${cc.name}</div>
+                        <span class="status-pill pill-100"><i class="fa-solid fa-check"></i> ${cc.energy} Năng Lượng</span>
+                    </div>
+                    <div class="bdh-pair"><span>Ban Điều Hành: ${cc.bdh}</span></div>
+                    <ul class="member-list">${memberHtml}</ul>
+                </div>
+            `;
+        });
+
+        function handleCheckin(e) {
+            e.preventDefault();
+            const name = document.getElementById('studentName').value;
+            const chuyenCo = document.getElementById('chuyenCoSelect').value;
+            const msg = document.getElementById('checkinMsg');
+            msg.style.display = 'block';
+            msg.style.color = '#4ade80';
+            msg.innerHTML = '<i class="fa-solid fa-circle-check"></i> Xin chúc mừng ' + name + ' (Chuyên Cơ ' + chuyenCo + ') đã điểm danh thành công chuyến bay Zoom!';
+            document.getElementById('attendanceForm').reset();
+            setTimeout(() => { msg.style.display = 'none'; }, 5000);
+        }
+    </script>
+</body>
+</html>
