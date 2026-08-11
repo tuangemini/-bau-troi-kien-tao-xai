@@ -19,11 +19,7 @@
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
         }
-
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: &apos;Plus Jakarta Sans&apos;, sans-serif; }
         body {
             background-color: var(--bg-primary);
             color: var(--text-main);
@@ -32,33 +28,23 @@
             position: relative;
             overflow-x: hidden;
         }
-
-
         .stars-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
             background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #030712 100%);
             overflow: hidden;
         }
-
-
         .star {
             position: absolute; background: white; border-radius: 50%;
             animation: twinkle var(--duration, 3s) infinite ease-in-out;
             opacity: var(--opacity, 0.8);
         }
-
-
         @keyframes twinkle {
             0%, 100% { opacity: 0.2; transform: scale(0.8); }
             50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px #00f2fe; }
         }
-
-
         .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
         header { padding: 45px 0 25px; text-align: center; }
-
-
         .badge-commander {
             display: inline-flex; align-items: center; gap: 8px;
             background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.08));
@@ -68,8 +54,6 @@
             font-size: 0.95rem; font-weight: 700; margin-bottom: 18px;
             box-shadow: 0 0 25px rgba(251, 191, 36, 0.2);
         }
-
-
         h1.main-title {
             font-size: 3rem; font-weight: 800;
             background: linear-gradient(135deg, #ffffff 0%, #38bdf8 50%, #00f2fe 100%);
@@ -77,43 +61,29 @@
             margin-bottom: 14px; letter-spacing: -0.5px;
             text-shadow: 0 0 30px rgba(0, 242, 254, 0.3);
         }
-
-
         .subtitle { color: var(--text-muted); font-size: 1.15rem; max-width: 750px; margin: 0 auto 28px; line-height: 1.6; }
-
-
         .banner-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 16px; margin-bottom: 35px;
         }
-
-
         .stat-card {
             background: var(--bg-card); border: 1px solid var(--border-card);
             backdrop-filter: blur(16px); border-radius: 18px; padding: 22px;
             display: flex; align-items: center; gap: 16px; transition: all 0.3s ease;
         }
-
-
         .stat-icon {
             width: 50px; height: 50px; border-radius: 14px;
             background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan);
             display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
         }
-
-
         .stat-info h4 { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; }
         .stat-info .val { font-size: 1.45rem; font-weight: 700; color: #fff; margin-top: 4px; }
-
-
         .register-banner {
             background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(56, 189, 248, 0.05));
             border: 1px solid rgba(0, 242, 254, 0.5); border-radius: 18px;
             padding: 22px 30px; margin-bottom: 40px;
             display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
         }
-
-
         .zoom-widget {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.85));
             border: 1px solid rgba(56, 189, 248, 0.5);
@@ -122,23 +92,15 @@
             margin-bottom: 40px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
-
-
         .zoom-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 28px;
             align-items: center;
         }
-
-
         @media (max-width: 768px) { .zoom-grid { grid-template-columns: 1fr; } }
-
-
         .form-group { margin-bottom: 16px; }
         .form-group label { display: block; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 6px; }
-
-
         .form-control {
             width: 100%;
             padding: 12px 16px;
@@ -149,8 +111,6 @@
             font-size: 0.95rem;
             outline: none;
         }
-
-
         .btn-checkin {
             padding: 14px 24px;
             background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
@@ -158,72 +118,44 @@
             font-size: 1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
             transition: all 0.3s;
         }
-
-
         .btn-checkin:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0, 242, 254, 0.4);
         }
-
-
         .leaderboard-container {
             background: var(--bg-card); border: 1px solid var(--border-card);
             backdrop-filter: blur(16px); border-radius: 22px; padding: 28px; margin-bottom: 40px;
         }
-
-
         .leader-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 20px; }
         .leader-item { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 18px; }
-
-
         .rank-badge {
             width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800;
         }
         .rank-1 { background: rgba(251, 191, 36, 0.2); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
         .rank-2 { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid #cbd5e1; }
         .rank-3 { background: rgba(217, 119, 6, 0.2); color: #f59e0b; border: 1px solid #f59e0b; }
-
-
         .progress-bar-bg { width: 100%; height: 8px; background: rgba(255, 255, 255, 0.1); border-radius: 999px; overflow: hidden; margin-top: 8px; }
         .progress-fill { height: 100%; background: linear-gradient(90deg, #00f2fe, #4facfe); border-radius: 999px; }
-
-
         .fleet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(370px, 1fr)); gap: 24px; margin-bottom: 40px; }
         .chuyen-co-card { background: var(--bg-card); border: 1px solid var(--border-card); backdrop-filter: blur(16px); border-radius: 22px; padding: 26px; }
-
-
         .card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
         .chuyen-co-title { font-size: 1.35rem; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px; }
-
-
         .status-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; }
         .pill-100 { background: rgba(74, 222, 128, 0.15); color: var(--accent-green); border: 1px solid rgba(74, 222, 128, 0.3); }
-
-
         .bdh-pair { background: rgba(192, 132, 252, 0.12); border: 1px dashed rgba(192, 132, 252, 0.4); color: var(--accent-purple); padding: 10px 14px; border-radius: 12px; font-size: 0.88rem; margin-bottom: 14px; }
         .member-list { list-style: none; }
         .member-item { display: flex; flex-direction: column; gap: 6px; padding: 10px 14px; margin-bottom: 8px; background: rgba(15, 23, 42, 0.5); border-radius: 12px; font-size: 0.92rem; border: 1px solid rgba(255, 255, 255, 0.04); }
-
-
         .member-row-top { display: flex; align-items: center; justify-content: space-between; }
         .metrics-badges { display: flex; gap: 8px; font-size: 0.75rem; }
         .badge-metric.done { background: rgba(74, 222, 128, 0.15); color: #4ade80; padding: 3px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; }
-
-
         .role-captain { color: var(--accent-gold); font-weight: 700; }
         .role-copilot { color: var(--accent-blue); font-weight: 600; }
-
-
         .table-container { width: 100%; clear: both; display: block; background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 22px; overflow-x: auto; backdrop-filter: blur(16px); margin-top: 30px; margin-bottom: 30px; padding: 10px; }
         table { width: 100%; min-width: 650px; border-collapse: collapse; text-align: left; }
         th, td { padding: 16px 20px; text-align: left; }
-
-
         .price-badge { display: inline-block; padding: 5px 12px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; }
         .price-de-nhat { background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); }
         .price-chuyen-co { background: rgba(244, 63, 94, 0.18); color: #fb7185; }
-
-
         footer { width: 100%; clear: both; text-align: center; padding: 35px 0; color: var(--text-muted); font-size: 0.92rem; border-top: 1px solid rgba(255, 255, 255, 0.08); margin-top: 30px; }
         footer a { color: var(--accent-cyan); text-decoration: none; }
     </style>
@@ -236,8 +168,6 @@
             <h1 class="main-title">BẦU TRỜI KIẾN TẠO CUỘC SỐNG xAI</h1>
             <p class="subtitle">Trung Tâm Điều Hành &amp; Kiểm Soát Cấp Độ Hoàn Thành – Nơi cất cánh toàn diện về <strong>Thân – Tâm – Trí</strong> trong kỷ nguyên xAI.</p>
         </header>
-
-
         <div class="register-banner">
             <div style="display: flex; align-items: center; gap: 16px;">
                 <div style="width: 50px; height: 50px; border-radius: 14px; background: rgba(0, 242, 254, 0.18); color: var(--accent-cyan); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
@@ -252,16 +182,13 @@
                 <i class="fa-solid fa-paper-plane"></i> ĐIỀN FORM ĐĂNG KÝ NGAY
             </a>
         </div>
-
-
         <div class="banner-grid">
             <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-jet-fighter"></i></div><div class="stat-info"><h4>Chuyên Cơ</h4><div class="val">9 Doanh Nghiệp</div></div></div>
-            <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><div class="stat-info"><h4>Tổ Bay</h4><div class="val">85 Học Viên</div></div></div>
+            <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-users"></i></div><div class="stat-info"><h4>Tổ Bay</h4><div class="val">83 Học Viên</div></div></div>
             <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-shield-halved"></i></div><div class="stat-info"><h4>Ban Điều Hành</h4><div class="val">6 Nhân Sự</div></div></div>
             <div class="stat-card"><div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div><div class="stat-info"><h4>Đào Tạo Zoom</h4><div class="val">20:00 T4 &amp; T7</div></div></div>
         </div>
-
-
+        <!-- CỔNG ĐIỂM DANH ZOOM MEETING WIDGET -->
         <div class="zoom-widget" id="checkin">
             <div class="zoom-grid">
                 <div>
@@ -272,21 +199,17 @@
                 </div>
                 <div style="background: rgba(15, 23, 42, 0.5); padding: 20px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.08);">
                     <form id="attendanceForm" onsubmit="handleCheckin(event)">
-                        <div class="form-group"><label>Họ và Tên Thành Viên Tổ Bay</label><input type="text" id="studentName" class="form-control" placeholder="Nhập đầy đủ họ tên..." required></div>
-                        <div class="form-group"><label>Chọn Chuyên Cơ</label><select id="chuyenCoSelect" class="form-control" required><option value="">-- Chọn Chuyên Cơ --</option><option value="1">Chuyên Cơ 1</option><option value="2">Chuyên Cơ 2</option><option value="3">Chuyên Cơ 3</option><option value="4">Chuyên Cơ 4</option><option value="5">Chuyên Cơ 5</option><option value="6">Chuyên Cơ 6</option><option value="7">Chuyên Cơ 7</option><option value="8">Chuyên Cơ 8</option><option value="9">Chuyên Cơ 9</option></select></div>
+                        <div class="form-group"><label>Họ và Tên Thành Viên Tổ Bay</label><input type="text" id="studentName" class="form-control" placeholder="Nhập đầy đủ họ tên..." required="required"/></div>
+                        <div class="form-group"><label>Chọn Chuyên Cơ</label><select id="chuyenCoSelect" class="form-control" required="required"><option value="">-- Chọn Chuyên Cơ --</option><option value="1">Chuyên Cơ 1</option><option value="2">Chuyên Cơ 2</option><option value="3">Chuyên Cơ 3</option><option value="4">Chuyên Cơ 4</option><option value="5">Chuyên Cơ 5</option><option value="6">Chuyên Cơ 6</option><option value="7">Chuyên Cơ 7</option><option value="8">Chuyên Cơ 8</option><option value="9">Chuyên Cơ 9</option></select></div>
                         <button type="submit" class="btn-checkin" style="width: 100%;"><i class="fa-solid fa-paper-plane"></i> XÁC NHẬN ĐIỂM DANH BAY</button>
                     </form>
                     <div id="checkinMsg" style="margin-top: 12px; font-size: 0.9rem; font-weight: 600; display: none;"></div>
                 </div>
             </div>
         </div>
-
-
         <div class="leaderboard-container">
             <div class="section-title"><i class="fa-solid fa-trophy"></i> <span>BẢNG XẾP HẠNG KHÍ ÁP NĂNG LƯỢNG (9 CHUYÊN CƠ)</span></div>
             <p style="color: var(--text-muted); font-size: 0.92rem; margin-top: 6px;">Tổng hợp chỉ số hoàn thành Vrace.com.vn, Zoom (20h00 T4&amp;T7) và 3 bài post Facebook/ngày.</p>
-
-
             <div class="leader-grid">
                 <div class="leader-item">
                     <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
@@ -323,13 +246,9 @@
                 </div>
             </div>
         </div>
-
-
         <div class="section-header">
             <div class="section-title"><i class="fa-solid fa-radar"></i> <span>SƠ ĐỒ TỔ BAY &amp; CẤP ĐỘ HOÀN THÀNH TỪNG THÀNH VIÊN</span></div>
         </div>
-
-
         <div id="fleetContainer" class="fleet-grid">
             <!-- CHUYÊN CƠ 1 -->
             <div class="chuyen-co-card">
@@ -344,190 +263,11 @@
                     <li class="member-item"><div class="member-row-top"><span>6. Nguyễn Thị Bích Vân</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
                     <li class="member-item"><div class="member-row-top"><span>7. Phạm Hoàng Bắc</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
                     <li class="member-item"><div class="member-row-top"><span>8. Quách Minh Châu</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>9. ba thanh nguyen</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>10. Phạm Quang Hồng</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                </ul>
-            </div>
-            <!-- CHUYÊN CƠ 2 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 2</div><span class="status-pill pill-100"><i class="fa-solid fa-check"></i> 90% Năng Lượng</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Thuỳ Dung &amp; Nguyễn Duy Anh</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><div class="member-row-top"><span class="role-captain">1. NGUYỄN THANH BÌNH (Cơ Trưởng)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span class="role-captain">2. Nông Phong (Cơ Trưởng)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>3. Ngô thị pháp</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>4. Nguyễn thị Như Nguyện</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>5. Quang Thị Phương Liên</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>6. Hiếu</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>7. Ngô Thị Thu Anh</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>8. Bùi Thị Hòa</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>9. Đỗ Thị Thu Trang</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>10. NGUYỄN THU HIỀN</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                </ul>
-            </div>
-            <!-- CHUYÊN CƠ 3 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 3</div><span class="status-pill pill-100"><i class="fa-solid fa-check"></i> 91% Năng Lượng</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Mai Thị Hường &amp; Lưu Hiền Dung</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><div class="member-row-top"><span class="role-captain">1. Lương Thùy Ninh (Cơ Trưởng)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span class="role-copilot">2. Nguyễn Việt Cường (Cơ Phó)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>3. Nguyễn Huy Hoàng</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>4. Truc Ta</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>5. Thinh</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>6. đỗ minh vương</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>7. Khúc Văn Tuấn</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>8. Nguyễn Thị Hồng</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>9. Tươi</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>10. Trần Thị Cậy</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                </ul>
-            </div>
-            <!-- CHUYÊN CƠ 4 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 4</div><span class="status-pill pill-100"><i class="fa-solid fa-check"></i> 88% Năng Lượng</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Hoàng Thị Phương Tú &amp; Đỗ Thị Bích Ngân</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><div class="member-row-top"><span class="role-captain">1. Trương Trần Thế Quang (Cơ Trưởng)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span class="role-copilot">2. Bùi Ngọc Đức (Cơ Phó)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>3. LÊ QUỐC DŨNG</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>4. Lăng Đình Cường</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>5. Phan Xuân Doanh Doanh</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>6. Nguyễn Văn Khương</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>7. Trịnh Công Vương</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>8. Phạm Anh Tuấn</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>9. Nguyễn Dung</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>10. nhung nguyen thi tuyet</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                </ul>
-            </div>
-            <!-- CHUYÊN CƠ 5 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 5</div><span class="status-pill pill-100"><i class="fa-solid fa-check"></i> 94% Năng Lượng</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Thuỳ Dung &amp; Nguyễn Duy Anh</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><div class="member-row-top"><span class="role-captain">1. Lê Văn Hưởng (Cơ Trưởng)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span class="role-copilot">2. Nông Minh Hoà (Cơ Phó)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>3. Nguyễn Ngô Ban</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>4. Chiến Nguyễn Vĩnh</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>5. Dương Thành Hảo</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>6. Nguyễn Anh Tú</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>7. Lê Văn Hào</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>8. Nguyễn Kiêm Thành</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>9. hohung nguyen</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                </ul>
-            </div>
-            <!-- CHUYÊN CƠ 6 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 6</div><span class="status-pill pill-100"><i class="fa-solid fa-check"></i> 89% Năng Lượng</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Mai Thị Hường &amp; Lưu Hiền Dung</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><div class="member-row-top"><span class="role-captain">1. Ừng Chúng Khoán (Cơ Trưởng)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span class="role-copilot">2. Lê Thị Vân Anh (Cơ Phó)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>3. NGUYỄN THI HOA</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>4. Nguyễn Duy Hùng</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>5. Nguyễn Tiến Túc</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>6. Lê Thị Luyên</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>7. TRỊNH THI AN</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>8. ĐÀO QUANG TUYÊN</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>9. Hoàng thị Hoà</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                </ul>
-            </div>
-            <!-- CHUYÊN CƠ 7 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 7</div><span class="status-pill pill-100"><i class="fa-solid fa-check"></i> 87% Năng Lượng</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Hoàng Thị Phương Tú &amp; Đỗ Thị Bích Ngân</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><div class="member-row-top"><span class="role-captain">1. Nguyễn Thị Hương (Cơ Trưởng)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span class="role-copilot">2. Nguyễn Thị Hồng Thịnh (Cơ Phó)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>3. Nguyễn Thị Huyền</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>4. Phan Minh Châu</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>5. Nguyễn Thị Thạo</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>6. Nguyễn Thị Ngọc</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>7. Văn thị xuân</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>8. Dương Thùy Sinh</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>9. Phạm Ngọc Quỳnh</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                </ul>
-            </div>
-            <!-- CHUYÊN CƠ 8 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 8</div><span class="status-pill pill-100"><i class="fa-solid fa-check"></i> 88% Năng Lượng</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Thuỳ Dung &amp; Nguyễn Duy Anh</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><div class="member-row-top"><span class="role-copilot">1. Trần Thị Kim Anh (Cơ Phó)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span class="role-copilot">2. CAO HẰNG (Cơ Phó)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>3. Myhuong Phan</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>4. Ngọc Linh</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>5. Lê Hoài Thương</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>6. NGUYỄN THI THU THỦY</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>7. Nguyễn Kim Tuyến</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>8. Huỳnh Thị Thuý Nga</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>9. Nguyễn Xuân Hạnh</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                </ul>
-            </div>
-            <!-- CHUYÊN CƠ 9 -->
-            <div class="chuyen-co-card">
-                <div class="card-head"><div class="chuyen-co-title"><i class="fa-solid fa-plane-departure"></i> Chuyên Cơ 9</div><span class="status-pill pill-100"><i class="fa-solid fa-check"></i> 86% Năng Lượng</span></div>
-                <div class="bdh-pair"><span>Ban Điều Hành: Mai Thị Hường &amp; Lưu Hiền Dung</span></div>
-                <ul class="member-list">
-                    <li class="member-item"><div class="member-row-top"><span class="role-captain">1. Nguyễn Thị Hiếu (Cơ Trưởng)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span class="role-copilot">2. Lan Bình (Cơ Phó)</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>3. Đặng Minh Hân</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>4. Đặng Thị Kề</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>5. Mydung Dang</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>6. Đỗ Văn Hậu</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>7. Đoàn Thị Mai Hương</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>8. Kim Hồng</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
-                    <li class="member-item"><div class="member-row-top"><span>9. Trần Thị Cậy</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
+                    <li class="member-item"><div class="member-row-top"><span>9. Nguyễn Huy Hoàng</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
+                    <li class="member-item"><div class="member-row-top"><span>10. Nguyễn Duy Hùng</span></div><div class="metrics-badges"><span class="badge-metric done"><i class="fa-solid fa-person-running"></i> Vrace</span><span class="badge-metric done"><i class="fa-brands fa-facebook"></i> FB 3/3</span><span class="badge-metric done"><i class="fa-solid fa-video"></i> Zoom 20h</span></div></li>
                 </ul>
             </div>
         </div>
-
-
-        <div class="table-container">
-            <table>
-                <thead><tr><th>STT</th><th>Nội Dung Chưa Hoàn Thành</th><th>Mức Gieo Hạt Đệ Nhất Thân</th><th>Mức Gieo Hạt Cả Chuyên Cơ</th></tr></thead>
-                <tbody>
-                    <tr><td>1</td><td><strong>Thể thao Vrace.com.vn</strong> (Thiếu 1 buổi/ngày)</td><td><span class="price-badge price-de-nhat">100.000 VNĐ</span></td><td><span class="price-badge price-chuyen-co">200.000 VNĐ</span></td></tr>
-                    <tr><td>2</td><td><strong>Lớp học Zoom 20h00</strong> (Vắng 1 buổi học)</td><td><span class="price-badge price-de-nhat">200.000 VNĐ</span></td><td><span class="price-badge price-chuyen-co">500.000 VNĐ</span></td></tr>
-                    <tr><td>3</td><td><strong>Truyền thông Facebook</strong> (Thiếu 1 bài post/ngày)</td><td><span class="price-badge price-de-nhat">50.000 VNĐ</span></td><td><span class="price-badge price-chuyen-co">100.000 VNĐ</span></td></tr>
-                </tbody>
-            </table>
-        </div>
-
-
-        <footer>
-            <p>© 2026 <strong>Bầu Trời Kiến Tạo Cuộc Sống xAI</strong>. Điều hành bởi <strong>Tuấn Tử Tế</strong> &amp; Ban Điều Hành Bay.</p>
-            <p style="margin-top: 8px;">Dữ liệu đồng bộ trực tiếp từ <a href="https://docs.google.com/spreadsheets/d/1CfKOb1y0AS2DH0i7ErZaxtnsl5uLUbYS3wmODjtUlCg/edit" target="_blank">Google Sheets Lớp Học</a>.</p>
-        </footer>
     </div>
-
-
-    <script>
-        const starsBg = document.getElementById('starsBg');
-        for (let i = 0; i < 150; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = (Math.random() * 100) + '%';
-            star.style.top = (Math.random() * 100) + '%';
-            const size = Math.random() * 3 + 1;
-            star.style.width = size + 'px';
-            star.style.height = size + 'px';
-            star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
-            star.style.setProperty('--opacity', (Math.random() * 0.7 + 0.3));
-            starsBg.appendChild(star);
-        }
-
-
-        function handleCheckin(e) {
-            e.preventDefault();
-            const name = document.getElementById('studentName').value;
-            const chuyenCo = document.getElementById('chuyenCoSelect').value;
-            const msg = document.getElementById('checkinMsg');
-            msg.style.display = 'block';
-            msg.style.color = '#4ade80';
-            msg.innerHTML = '<i class="fa-solid fa-circle-check"></i> Xin chúc mừng ' + name + ' (Chuyên Cơ ' + chuyenCo + ') đã điểm danh thành công chuyến bay Zoom!';
-            document.getElementById('attendanceForm').reset();
-            setTimeout(() => { msg.style.display = 'none'; }, 5000);
-        }
-    </script>
 </body>
 </html>
